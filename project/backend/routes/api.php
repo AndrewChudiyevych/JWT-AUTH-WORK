@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +29,21 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
+
+
+Route::get('books', function () {
+    return \App\Models\book::all();
+});
+
+
+Route::get('authors', function () {
+    return \App\Models\author::all();
+});
+
+Route::get('genres', function () {
+    return \App\Models\genre::all();
+});
+
+
+//Route::resource('books', BookController::class);
+
